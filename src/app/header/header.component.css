@@ -1,0 +1,71 @@
+.logo {
+  text-align: center; /* Center the logo horizontally */
+}
+
+.logo img {
+  height: 160px;
+  width: auto;
+}
+
+header {
+  background-color: #9a840be0; /* Gold/Yellow color */
+  color: #1c2467; /* White text color */
+  padding: 10px 20px; /* Add some padding for content */
+  width: 100%; /* Make the header span the full width of the screen */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  height: 80px;
+  font-size: 25px;
+  font-family: 'Trebuchet MS';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 50px; /* Add some space between navigation links */
+}
+
+nav ul li:last-child {
+  margin-right: 0; /* Remove margin from the last navigation link */
+}
+
+nav ul li a {
+  color: inherit; /* Inherit the color from parent (white) */
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+nav ul li a:hover {
+  text-decoration: underline; /* Underline on hover */
+  font-weight: bold; /* Bold font on hover */
+  font-size: 28px; /* Slightly larger font size on hover */
+  transition-timing-function: ease-in-out; /* Smoother transition timing function */
+}
+button{
+  padding: 8px 16px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border: 1px solid#9a840be0;
+  color: #9a840be0;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #1c2467;
+  font-size: 25px;
+  font-family: 'Trebuchet MS';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

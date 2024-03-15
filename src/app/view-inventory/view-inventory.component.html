@@ -1,0 +1,45 @@
+<!-- view-inventory.component.html -->
+
+<div class="search-bar">
+    <h2>Search by Product Name or Inventory Number</h2>
+    <input type="text">
+    <button>Search</button>
+    <br><br>
+  </div>
+  
+  <table class="inventory-table">
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Material</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>Cost</th>
+        <th>Sale Price</th>
+        <th>Quantity In Stock</th>
+        <th>Edit</th>
+        <th>Print Barcode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Populate table rows dynamically using Angular -->
+      <tr *ngFor="let inventory of inventorys">
+        <td>{{ inventory.ProductID }}</td>
+        <td>{{ inventory.ProductName }}</td>
+        <td>{{ inventory.Category }}</td>
+        <td>{{ inventory.Description }}</td>
+        <td>{{ inventory.Material }}</td>
+        <td>{{ inventory.Size }}</td>
+        <td>{{ inventory.Color }}</td>
+        <td>{{ inventory.CostPrice }}</td>
+        <td>{{ inventory.SellingPrice }}</td>
+        <td>{{ inventory.QuantityInStock }}</td>
+        <td><button>Edit</button></td>
+        <td><button>Print Barcode</button></td>
+      </tr>
+    </tbody>
+  </table>
+  

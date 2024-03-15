@@ -1,0 +1,58 @@
+/* view-inventory.component.css */
+
+h2{
+    font-family: 'Trebuchet MS';
+    color: #1c2467;
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+input{
+    width: 50%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    border: 1px solid #1c2467;
+    border-radius: 5px;
+    height: 20px;
+}
+button {
+    padding: 8px 16px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1c2467; /* Dark blue color */
+    color: #9a840be0;
+    font-weight: bold;
+    font-family: 'Trebuchet MS'
+  }
+
+.inventory-table {
+  width: 100%; /* Ensure the table spans the full width of the page */
+  border-collapse: collapse; /* Collapse table borders */
+}
+
+.inventory-table th {
+  background-color: #9a840be0; /* Gold/Yellow color */
+  color: #1c2467; /* Dark blue text color */
+  padding: 8px; /* Add padding to the table header cells */
+  text-align: left; /* Align text to the left within header cells */
+  border-bottom: 2px solid #1c2467; /* Add bottom border to header cells */
+  height: 40px;
+  font-size: 15px;
+  font-family: 'Trebuchet MS';
+  text-align: center;
+}
+
+.inventory-table td {
+  padding: 8px; /* Add padding to the table data cells */
+  border-bottom: 1px solid #ddd; /* Add bottom border to data cells */
+}
+
+.inventory-table th:last-child,
+.inventory-table td:last-child {
+  border-right: none; /* Remove right border from last column */
+}

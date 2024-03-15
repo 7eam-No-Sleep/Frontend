@@ -1,0 +1,56 @@
+.right-column {
+    color: #1c2467; /* White text color */
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    font-family: 'Trebuchet MS';
+  }
+  
+  .right-column h2 {
+    margin-top: 10px;
+    font-size: 30px;
+  }
+  
+
+  .right-column button {
+    padding: 8px 16px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 1px solid#9a840be0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1c2467; /* Dark blue color */
+    color: #9a840be0;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .right-column input[type="text"],
+  .right-column select {
+    width: 50%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid#9a840be0;
+    border-radius: 5px;
+    font-size: 20px;;
+  }
+  
+  .right-column .payment-options {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .right-column .sale-management {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  .right-column button:hover {
+    background-color: #18258e; /* Darker blue color on hover */
+  }
+  

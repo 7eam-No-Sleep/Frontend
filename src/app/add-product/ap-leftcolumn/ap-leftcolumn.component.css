@@ -1,0 +1,36 @@
+.column{
+    color: #1c2467;
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS'
+}
+
+.column h2{
+    margin-top: 10px;
+    font-weight: bold;
+}
+.column input[type="text"],
+.column select{
+    width: 50%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid#9a840be0;
+}
+
+.column button{
+    padding: 8px 16px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 1px solid#9a840be0;
+    color: #9a840be0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1c2467;
+    font-size: 20px;
+    font-family: 'Trebuchet MS';
+}
+.column button:hover{
+    background-color: #18258e
+}

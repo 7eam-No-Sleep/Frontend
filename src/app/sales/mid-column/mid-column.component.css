@@ -1,0 +1,29 @@
+/* middle-column.component.css */
+
+.middle-column {
+  color: #1c2467; /* White text color */
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  font-family: 'Trebuchet MS';
+  }
+  
+  .middle-column h2 {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .middle-column .summary-details {
+    margin-top: 20px;
+    color: 1c2467;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+  }
+  
+  .middle-column .summary-details p {
+    margin-bottom: 10px;
+  }
+  
