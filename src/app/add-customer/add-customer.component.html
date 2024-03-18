@@ -1,4 +1,10 @@
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
 <div class="grid-container">
-    <app-ac-leftcolumn></app-ac-leftcolumn>
-    <app-ac-rightcolumn></app-ac-rightcolumn>
+    <app-ac-leftcolumn (formDataChanged)="updateFormData($event)"></app-ac-leftcolumn>
+    <app-ac-rightcolumn (formDataChanged)="updateFormData($event)"></app-ac-rightcolumn>
   </div>
+  
+<div class="button-container">
+  <button (click)="submitForm()">Add Customer</button>
+</div>

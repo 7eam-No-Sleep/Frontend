@@ -1,12 +1,12 @@
 <div class="column">
+    <h2>Apt. No.:</h2>
+    <input type="text" [(ngModel)]="AptNo" (input)="emitFormData()">
     <h2>City:</h2>
-    <input type="text">
+    <input type="text"[(ngModel)]="City" (input)="emitFormData()">
     <h2>State:</h2>
-    <input type="text">
+    <input type="text"[(ngModel)]="State" (input)="emitFormData()">
     <h2>Zip Code:</h2>
-    <input type="text">
+    <input type="text"[(ngModel)]="ZipCode" (input)="emitFormData()">
     <h2>Birthdate: </h2>
-    <input type="text">
-    <br><br><br><br>
-    <button>Add Customer</button>
+    <input type="text" [(ngModel)]="Birthdate" (input)="emitFormData()" placeholder="YYYY-MM-DD">
 </div>

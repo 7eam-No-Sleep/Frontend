@@ -1,8 +1,8 @@
 <div class="column">
     <h2>Product Name:</h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="ProductName" (input)="emitFormData()">
     <h2>Category: </h2>
-    <select>
+    <select [(ngModel)]="Category" (change)="emitFormData()">
         <option value=" ">Select a Category</option>
         <option value="Activewear">Activewear</option>
         <option value="athletic shorts">Athletic Shorts</option>
@@ -93,12 +93,10 @@
         <option value="other">Other</option>
     </select>
     <h2>Description: </h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="Description" (input)="emitFormData()">
     <h2>Material: </h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="Material" (input)="emitFormData()">
     <h2>Size: </h2>
-    <input type="text">
-    <h2>Color: </h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="Size" (input)="emitFormData()">
 
 </div>

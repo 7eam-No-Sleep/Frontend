@@ -1,11 +1,11 @@
 <!-- view-inventory.component.html -->
 
 <div class="search-bar">
-    <h2>Search by Product Name or Inventory Number</h2>
-    <input type="text">
-    <button>Search</button>
-    <br><br>
-  </div>
+  <h2>Search by Product Name or Inventory Number</h2>
+  <input type="text" [(ngModel)]="searchQuery" (input)="searchInventory()">
+<!-- <button (click)="searchInventory()">Search</button> -->
+  <br><br>
+</div>
   
   <table class="inventory-table">
     <thead>
@@ -26,7 +26,7 @@
     </thead>
     <tbody>
       <!-- Populate table rows dynamically using Angular -->
-      <tr *ngFor="let inventory of inventorys">
+      <tr *ngFor="let inventory of filteredInventory">
         <td>{{ inventory.ProductID }}</td>
         <td>{{ inventory.ProductName }}</td>
         <td>{{ inventory.Category }}</td>

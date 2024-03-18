@@ -1,7 +1,29 @@
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Three equal-width columns */
-    gap: 2px; /* Adjust as needed */
-    justify-content: center;
-    text-align: center;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Three equal-width columns */
+  gap: 2px; /* Adjust as needed */
+  justify-content: center;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 8px 16px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border: 1px solid #9a840be0;
+  color: #9a840be0;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #1c2467;
+  font-size: 20px;
+  font-family: 'Trebuchet MS';
+}
+.success-message {
+color: green;
+margin-top: 10px;
+}

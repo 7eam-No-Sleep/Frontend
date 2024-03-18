@@ -1,4 +1,9 @@
 <div class="grid-container">
-    <app-ap-leftcolumn></app-ap-leftcolumn>
-    <app-ap-rightcolumn></app-ap-rightcolumn>
-  </div>
+  <app-ap-leftcolumn (formDataChanged)="updateFormData($event)"></app-ap-leftcolumn>
+  <app-ap-rightcolumn (formDataChanged)="updateFormData($event)"></app-ap-rightcolumn>
+</div>
+
+<div class="button-container">
+  <button (click)="submitForm()">Add Product</button>
+</div>
+

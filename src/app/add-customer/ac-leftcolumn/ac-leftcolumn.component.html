@@ -1,14 +1,17 @@
 <div class="column">
     <h2>First Name:</h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="FirstName" (input)="emitFormData()">
+    
     <h2>Last Name:</h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="LastName" (input)="emitFormData()">
+    
     <h2>Contact Number:</h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="ContactNumber" (input)="emitFormData()">
+    
     <h2>Email Address:</h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="Email" (input)="emitFormData()">
+    
     <h2>Street Address 1:</h2>
-    <input type="text">
-    <h2>Apt. No.:</h2>
-    <input type="text">
-</div>
+    <input type="text" [(ngModel)]="Street1" (input)="emitFormData()">
+    
+  </div>

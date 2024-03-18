@@ -1,7 +1,6 @@
 <div class="search-bar">
   <h2>Search by Customer Number, Phone Number, or Last Name: </h2>
-  <input type="text">
-  <button>Search</button>
+  <input type="text" [(ngModel)]="searchQuery" (input)="searchCustomers()">
   <br><br>
 </div>
 
@@ -23,7 +22,7 @@
   </thead>
   <tbody>
       <!-- Populate table rows dynamically using Angular -->
-      <tr *ngFor="let customer of customers">
+      <tr *ngFor="let customer of filteredCustomers">
           <td>{{ customer.CustomerID }}</td>
           <td>{{ customer.FirstName }}</td>
           <td>{{ customer.LastName }}</td>
@@ -38,5 +37,7 @@
       </tr>
   </tbody>
 </table>
+
+
 
 
