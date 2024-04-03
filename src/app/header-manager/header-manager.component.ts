@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { Router, RouterLinkActive, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-header-manager',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: './header-manager.component.html',
+  styleUrl: './header-manager.component.css'
 })
-export class HeaderComponent {
-  
+export class HeaderManagerComponent {
   constructor(private authService: AuthService, private router: Router){}
 
   logout(): void {
@@ -19,3 +18,4 @@ export class HeaderComponent {
     this.router.navigate(['/login']);
   }
 }
+

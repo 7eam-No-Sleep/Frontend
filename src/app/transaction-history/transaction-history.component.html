@@ -1,1 +1,28 @@
-<p>transaction-history works!</p>
+<div class="search-bar">
+    <h2>Search Transactions by TransactionID, SaleID, or CustomerID</h2>
+    <input type="text" [(ngModel)]="searchQuery" (input)="searchTransactions()">
+    <br><br>
+</div>
+
+<table class = "inventory-table">
+    <thead>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Sale ID</th>
+            <th>Customer ID</th>
+            <th>Transaction Date</th>
+            <th>Payment Method</th>
+            <th>Total Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of filteredTransactions">
+            <td> {{ transaction.TransactionID }}</td>
+            <td> {{ transaction.SalesID }}</td>
+            <td> {{ transaction.CustomerID }}</td>
+            <td> {{ transaction.TransactionDate }}</td>
+            <td> {{ transaction.PaymentMethod }}</td>
+            <td> {{ transaction.TotalAmount }}</td>
+        </tr>
+    </tbody>
+</table>

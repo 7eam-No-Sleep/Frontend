@@ -1,0 +1,22 @@
+<div class="search-bar">
+    <h2>Search Employee by Full Name or Employee ID</h2>
+    <input type="text" [(ngModel)]="searchQuery" (input)="searchEmployee()">
+    <br><br>
+</div>
+
+<table class="inventory-table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Full Name</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of filteredEmployee">
+        <td>{{ employee.employee_id }} </td>
+        <td>{{ employee.full_name }}</td>
+        <td>{{ employee.role }}</td>
+    </tr>
+    </tbody>
+</table>
