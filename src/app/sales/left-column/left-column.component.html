@@ -1,14 +1,8 @@
 <div class="left-column">
-  <h2>Customer Phone Number:</h2>
-  <input type="text" placeholder="Enter phone number">
-  <br>
-  <button>Fetch Customer</button>
-  
   <h2>Product ID:</h2>
-  <input type="text" placeholder="Enter product ID">
+  <input type="number" placeholder="Enter product ID" [(ngModel)]="productID">
   <br>
-  <button>Add Item</button>
-  <button>Start Scan</button>
+  <button (click)="fetchProductById()">Add Product</button>
   
   <h2>Discount Reason:</h2>
   <select>
@@ -24,8 +18,7 @@
   </select>
   <br>
   <h2>Discount Amount:</h2>
-  <input type="text" placeholder="Enter Discount Amount">
+  <input type="number" placeholder="Enter Discount Amount" [(ngModel)]="discountAmount">
   <br>
-  <button>+Discount</button>
-  <button>-Discount</button>
+  <button (click)="applyDiscount()">Apply Discount</button>
 </div>

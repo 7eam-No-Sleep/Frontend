@@ -10,6 +10,7 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
 import { ReportsComponent } from './reports/reports.component';
 import { ViewStaffComponent } from './view-staff/view-staff.component';
 import { LoginComponent } from './login/login.component';
+import { ViewShiftsComponent } from './view-shifts/view-shifts.component';
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -21,6 +22,7 @@ export const routes: Routes = [
     { path: 'addcustomer', component: AddCustomerComponent, canActivate: [AuthGuard] },
     { path: 'transactionhistory', component: TransactionHistoryComponent, canActivate: [AuthGuard] },
     { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
-    { path: 'viewstaff', component: ViewStaffComponent, canActivate: [AuthGuard] }
+    { path: 'viewstaff', component: ViewStaffComponent, canActivate: [AuthGuard] },
+    { path: 'viewshifts', component: ViewShiftsComponent, canActivate: [AuthGuard]}
     
 ];

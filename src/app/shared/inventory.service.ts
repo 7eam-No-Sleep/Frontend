@@ -20,5 +20,10 @@ export class InventoryService {
   addInventory(inventory: Inventory): Observable<Inventory>{
     return this.http.post<Inventory>(this.apiUrl, inventory);
   }
+
+  getProductById(ProductID: number): Observable<Inventory> {
+    const url = `${this.apiUrl}/${ProductID}`;
+    return this.http.get<Inventory>(url);
+  }
 }
 

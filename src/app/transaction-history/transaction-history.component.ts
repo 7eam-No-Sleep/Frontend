@@ -37,7 +37,7 @@ export class TransactionHistoryComponent {
       const query = parseInt(this.searchQuery);
       this.filteredTransactions = this.transactions.filter((transaction)=>
       transaction.TransactionID == query ||
-      transaction.SalesID == query ||
+      transaction.SaleID == query ||
       transaction.CustomerID == query)
     }
   }

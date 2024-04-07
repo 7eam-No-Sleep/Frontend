@@ -21,7 +21,7 @@ export class LoginComponent {
       .subscribe({
         next: () => {
           const userRole = this.authService.getUserRole();
-          if (userRole === 'employee') {
+          if (userRole === 'sales') {
             this.router.navigate(['/sales']);
           } else if (userRole === 'manager') {
             this.router.navigate(['/viewinventory']);

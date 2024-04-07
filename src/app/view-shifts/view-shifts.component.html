@@ -1,0 +1,35 @@
+<div class="search-bar">
+    <h2>Search Shift by Date or Employee ID</h2>
+    <input type="text">
+    <br><br>
+</div>
+
+<table class="inventory-table">
+    <thead>
+        <tr>
+          <th>Shift ID</th>
+          <th>Employee ID</th>
+          <th>Shift Time</th>
+          <th>Shift Date</th>
+          <th>Total Transactions</th>
+          <th>Total Cash</th>
+          <th>Total Checks</th>
+          <th>Total Card Sales</th>
+          <th>Total Sales</th>
+        </tr>
+      </thead>
+    <tbody>
+      <!-- Populate table rows dynamically using Angular -->
+      <tr *ngFor="let shift of shifts">
+        <td>{{ shift.shift_id }}</td>
+        <td>{{ shift.employee_id }}</td>
+        <td>{{ shift.shift_time }}</td>
+        <td>{{ shift.shift_date }}</td>
+        <td>{{ shift.total_transactions }}</td>
+        <td>{{ shift.total_cash }}</td>
+        <td>{{ shift.total_checks }}</td>
+        <td>{{ shift.total_card_sales }}</td>
+        <td>{{ shift.total_sales }}</td>
+      </tr>
+    </tbody>
+  </table>

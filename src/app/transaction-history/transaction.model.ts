@@ -1,8 +1,8 @@
 export interface Transaction{
     TransactionID: number;
-    SalesID: number;
+    SaleID: number;
     CustomerID: number;
-    TransactionDate: Date;
+    TransactionDate: string;
     PaymentMethod: string;
     TotalAmount: number;
 }

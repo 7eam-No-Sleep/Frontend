@@ -1,16 +1,21 @@
 <div class="right-column">
     <h2>Sales ID</h2>
-    <input type="text" placeholder="Enter employee ID">
+    <input type="text" placeholder="Enter Employee ID" [(ngModel)]="saleID">
+
+    <h2>Customer Phone Number</h2>
+    <input type="text" placeholder="Enter Customer Phone #" [(ngModel)]="customerPhoneNumber">
+    <button (click)="fetchCustomerId()">Fetch Customer</button>
+  
   
     <div class="payment-options">
-      <button>Cash</button>
-      <button>Check</button>
-      <button>Card</button>
+      <button (click)="paymentMethod = 'cash'">Cash</button>
+      <button (click)="paymentMethod = 'check'">Check</button>
+      <button (click)="paymentMethod = 'card'">Card</button>
     </div>
   
     <div class="sale-management">
-      <button>Finalize</button>
-      <button>Clear</button>
+      <button (click)="finalizeSale()">Finalize</button>
+      <button (click)="clearForm()">Clear</button>
     </div>
   </div>
   
