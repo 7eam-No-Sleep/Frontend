@@ -30,13 +30,41 @@ export class AuthService {
     return localStorage.getItem('role') || 'unknown';
   }
 
-  logout() {
+  logout(): void {
+    // Get user ID from local storage
     const userId = localStorage.getItem('userID');
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('userID');
-
+  
+    // Check if userId is not null before making the API call
+    if (userId !== null) {
+      // Make API call to update last logout time
+      this.updateLastLogoutTime(userId).subscribe(
+        () => {
+          console.log('Logout request successful');
+          // Remove tokens from local storage
+          localStorage.removeItem('token');
+          localStorage.removeItem('role');
+          localStorage.removeItem('userID');
+          console.log('Local storage items removed');
+        },
+        (error) => {
+          console.error('Error updating last logout time:', error);
+          // Optionally handle error, such as showing an error message
+        }
+      );
+    } else {
+      console.error('User ID not found in local storage');
+      // Optionally handle this case, such as showing an error message
+    }
   }
+  
+  // Define the method to update last logout time
+  private updateLastLogoutTime(userId: string): Observable<any> {
+    return this.http.put<any>(
+      `${this.apiUrl}/employee/${userId}/logout`,
+      null
+    );
+  }
+
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
