@@ -1,12 +1,9 @@
-<ng-container *ngIf="isLoggedIn()">
-    <ng-container *ngIf="isManager(); else employeeHeader">
-      <app-header-manager></app-header-manager>
-    </ng-container>
-    <ng-template #employeeHeader>
-      <app-header></app-header>
-    </ng-template>
-    <router-outlet></router-outlet>
-  </ng-container>
-  <ng-container *ngIf="!isLoggedIn()">
-    <app-login></app-login>
-  </ng-container>
+<ng-container *ngIf="isLoggedIn(); else loginSection">
+  <app-header-manager *ngIf="isManager()"></app-header-manager>
+  <app-header *ngIf="isEmployee()"></app-header>
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #loginSection>
+  <app-login></app-login>
+</ng-template>

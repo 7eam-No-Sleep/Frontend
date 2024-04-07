@@ -38,7 +38,9 @@ export class ViewStaffComponent {
     }else{
       const query = parseInt(this.searchQuery);
       this.filteredEmployee = this.employees.filter((employee)=>
-      employee.full_name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+      employee.first_name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+      employee.last_name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+      
       employee.employee_id === query
       );
     }

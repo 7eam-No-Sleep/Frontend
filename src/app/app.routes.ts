@@ -11,10 +11,14 @@ import { ReportsComponent } from './reports/reports.component';
 import { ViewStaffComponent } from './view-staff/view-staff.component';
 import { LoginComponent } from './login/login.component';
 import { ViewShiftsComponent } from './view-shifts/view-shifts.component';
+import { AddStaffComponent } from './add-staff/add-staff.component';
+import { HeaderManagerComponent } from './header-manager/header-manager.component';
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
-    {path: 'header', component: HeaderComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'header', component: HeaderComponent, canActivate: [AuthGuard]},
+    {path: 'managerheader', component: HeaderManagerComponent, canActivate: [AuthGuard]},
     { path: 'sales', component: SalesComponent, canActivate: [AuthGuard] },
     { path: 'viewinventory', component: ViewInventoryComponent, canActivate: [AuthGuard] },
     { path: 'viewcustomers', component: ViewCustomersComponent, canActivate: [AuthGuard] },
@@ -23,6 +27,7 @@ export const routes: Routes = [
     { path: 'transactionhistory', component: TransactionHistoryComponent, canActivate: [AuthGuard] },
     { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
     { path: 'viewstaff', component: ViewStaffComponent, canActivate: [AuthGuard] },
-    { path: 'viewshifts', component: ViewShiftsComponent, canActivate: [AuthGuard]}
+    { path: 'viewshifts', component: ViewShiftsComponent, canActivate: [AuthGuard]},
+    { path: 'addstaff', component: AddStaffComponent, canActivate: [AuthGuard]}
     
 ];

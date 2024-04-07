@@ -16,18 +16,17 @@ import { HeaderManagerComponent } from './header-manager/header-manager.componen
 
 export class AppComponent {
   title = "Honey-Be's Boutique";
-  constructor(private authService: AuthService) { }
+
+  constructor(private authService: AuthService) {}
 
   isLoggedIn(): boolean {
-    return this.authService.isLoggedIn(); // Implement this method in your AuthService
+    return this.authService.isLoggedIn();
   }
 
   isManager(): boolean {
-    return this.authService.getUserRole() === 'manager'; // Implement this method in your AuthService
+    return this.authService.getUserRole() === 'manager';
   }
-
-  isEmployee(): boolean {
-    return this.authService.getUserRole() === 'employee'; // Implement this method in your AuthService
+  isEmployee(): boolean{
+    return this.authService.getUserRole()==='sales';
   }
-
 }

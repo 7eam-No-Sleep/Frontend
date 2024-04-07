@@ -1,0 +1,9 @@
+<div class="grid-container">
+    <app-as-leftcolumn (formDataChanged)="updateFormData($event)"></app-as-leftcolumn>
+    <app-as-rightcolumn (formDataChanged)="updateFormData($event)"></app-as-rightcolumn>
+  </div>
+  
+<div class="button-container">
+  <button (click)="submitForm()" >Add Staff</button>
+</div>
+

@@ -11,33 +11,34 @@ export class AuthService {
   private apiUrl = 'http://127.0.0.1:8000/api';
 
   constructor(private http: HttpClient) {}
-  login(employeeId: number, password: string): Observable<any> {
+
+    login(employeeId: number, password: string) {
     return this.http.get<any>(
       `${this.apiUrl}/employee/${employeeId}/credentials?password=${password}`
     ).pipe(
       tap((response) => {
         if (response && response.token) {
-          localStorage.setItem('token', response.token); // Store token in local storage
-          localStorage.setItem('role', response.role); // Store role in local storage
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('role', response.role);
+          localStorage.setItem('userID', response.userID);
         }
       })
     );
   }
 
   getUserRole(): string {
-    const role = localStorage.getItem('role');
-    if (role && (role === 'employee' || role === 'manager')) {
-      return role;
-    }
-    return 'unknown';
+    return localStorage.getItem('role') || 'unknown';
   }
-  logout(): void {
+
+  logout() {
+    const userId = localStorage.getItem('userID');
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    localStorage.removeItem('userID');
+
   }
+
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
 }
-
-

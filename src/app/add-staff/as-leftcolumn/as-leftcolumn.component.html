@@ -1,0 +1,15 @@
+<div class="column">
+    
+    <h2>Role:</h2>
+    <select [(ngModel)]="role" (change)="emitFormData()">
+      <option value="manager">Manager</option>
+      <option value="sales">Sales</option>
+    </select>
+
+    <h2> First Name: </h2>
+    <input type="text" [(ngModel)]="first_name" (input)="emitFormData()">
+
+    <h2>Last Name: </h2>
+    <input type="text" [(ngModel)]="last_name" (input)="emitFormData()">
+
+</div>
