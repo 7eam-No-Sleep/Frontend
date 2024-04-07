@@ -37,7 +37,7 @@
         <td>{{ inventory.CostPrice }}</td>
         <td>{{ inventory.SellingPrice }}</td>
         <td>{{ inventory.QuantityInStock }}</td>
-        <td><button>Edit</button></td>
+        <td><button (click)="onEdit(inventory.ProductID)">Edit</button></td>
         <td><button>Print Barcode</button></td>
       </tr>
     </tbody>

@@ -25,5 +25,8 @@ export class InventoryService {
     const url = `${this.apiUrl}/${ProductID}`;
     return this.http.get<Inventory>(url);
   }
+  updateProduct(product: Inventory): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/products/${product.ProductID}`, product);
+  }
 }
 

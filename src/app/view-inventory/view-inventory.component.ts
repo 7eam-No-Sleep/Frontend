@@ -3,6 +3,7 @@ import { CommonModule, FormStyle } from '@angular/common';
 import { Inventory } from './inventory.model';
 import { InventoryService } from '../shared/inventory.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-inventory',
@@ -16,7 +17,7 @@ export class ViewInventoryComponent {
   filteredInventory: Inventory[] = [];
   searchQuery: string='';
 
-  constructor(private InventoryService: InventoryService) {}
+  constructor(private InventoryService: InventoryService, private router: Router) {}
 
   ngOnInit(): void {
     this.InventoryService.getInventory().subscribe({
@@ -41,5 +42,8 @@ export class ViewInventoryComponent {
         inventory.ProductID === query // Check if ProductId matches the query
       );
     }
+  }
+  onEdit(productId: number){
+    this.router.navigate(['/inventory', productId, 'edit'])
   }
 }
