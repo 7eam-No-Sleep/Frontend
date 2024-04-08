@@ -18,4 +18,7 @@ export class CardsService {
   updateCard (card: GiftCard): Observable<GiftCard[]>{
     return this.http.put<GiftCard[]>(`${this.apiUrl}/${card.CardNumber}`, card);
   }
+  addCard(card: GiftCard): Observable<GiftCard>{
+    return this.http.post<GiftCard>(this.apiUrl, card);
+  }
 }

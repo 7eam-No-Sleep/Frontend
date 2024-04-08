@@ -31,6 +31,7 @@ export class EditGcComponent {
         this.CardNumber = 0;
         this.Balance = '';
         this.Status ='';
+        location.reload();
       },
       error: error =>{
         console.error('Error Updating Gift Card:', error);

@@ -1,1 +1,9 @@
-<p>create-gc works!</p>
+<h1>Activate New Gift Card</h1>
+<form (ngSubmit)="makeGiftCard()">
+<h2>Balance: </h2>
+<input type="text" id="balance" name="balance" [(ngModel)]="Balance">
+<h2>Status: </h2>
+<input type="text" id="status" name="status" [(ngModel)]="Status">
+<br>
+<button type="submit">Create Gift Card</button>
+</form>
