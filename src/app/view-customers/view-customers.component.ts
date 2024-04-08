@@ -3,6 +3,7 @@ import { CustomerService } from '../shared/customer.service';
 import { CommonModule } from '@angular/common';
 import { Customer } from './customer.model';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-customers',
@@ -16,7 +17,7 @@ export class ViewCustomersComponent implements OnInit {
   filteredCustomers: Customer[]=[];
   searchQuery: string='';
 
-  constructor(private customerService: CustomerService){}
+  constructor(private customerService: CustomerService, private router: Router){}
   
   ngOnInit(): void{
     this.customerService.getCustomers().subscribe({
@@ -42,5 +43,8 @@ export class ViewCustomersComponent implements OnInit {
       customer.ContactNumber.includes(query) 
       );
     }
+  }
+  onEdit(customerId: number){
+    this.router.navigate(['/customer', customerId, 'edit'])
   }
 }

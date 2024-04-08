@@ -34,31 +34,36 @@ export class EditProductComponent {
     private inventoryService: InventoryService
   ) {}
 
-
-  ngOnInit(): void{
-    this.route.params.subscribe(params =>{
-      this.productId = params['id'];
-      this.inventoryService.getProductById(this.productId).subscribe(
-        (data)=>{
-          this.product = data;
-        },
-        (error)=>{
-          console.error('Error fetching product details:', error);
-        }
-      );
+  ngOnInit(): void {
+    this.route.params.subscribe({
+      next: params => {
+        this.productId = params['id'];
+        this.inventoryService.getProductById(this.productId).subscribe({
+          next: data => {
+            this.product = data;
+          },
+          error: error => {
+            console.error('Error fetching product details:', error);
+          }
+        });
+      },
+      error: error => {
+        console.error('Error fetching route parameters:', error);
+      }
     });
   }
+
   saveProduct(): void {
-    this.inventoryService.updateProduct(this.product).subscribe(
-      (data) => {
+    this.inventoryService.updateProduct(this.product).subscribe({
+      next: data => {
         console.log('Product updated successfully:', data);
         // Navigate back to view inventory page or any other appropriate page
         this.router.navigate(['/viewinventory']);
       },
-      (error) => {
+      error: error => {
         console.error('Error updating product:', error);
       }
-    );
+    });
   }
 
 }

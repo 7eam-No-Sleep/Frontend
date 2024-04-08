@@ -1,0 +1,27 @@
+<div class="edit-product-container">
+    <div class="column">
+        <h2>First Name: </h2>
+        <input type="text" [(ngModel)]="customer.FirstName">
+        <h2>Last Name: </h2>
+        <input type="text" [(ngModel)]="customer.LastName">
+        <h2>Contact Number: </h2>
+        <input type="text" [(ngModel)]="customer.ContactNumber">
+        <h2>Email: </h2>
+        <input type="text" [(ngModel)]="customer.Email">
+        <h2>Street Address: </h2>
+        <input type="text" [(ngModel)]="customer.Street1">
+    </div>
+    <div class="column">
+        <h2>Apartment No.:</h2>
+        <input type="text" [(ngModel)]="customer.AptNo">
+        <h2>City: </h2>
+        <input type="text" [(ngModel)]="customer.City">
+        <h2>State: </h2>
+        <input type="text" [(ngModel)]="customer.State">
+        <h2>Zipcode: </h2>
+        <input type="text" [(ngModel)]="customer.FirstName">
+        <h2>Birthdate: </h2>
+        <input type="text" [(ngModel)]="customer.FirstName">
+        <button (click)="saveCustomer()">Edit Customer</button>
+    </div>
+</div>

@@ -14,6 +14,7 @@ import { ViewShiftsComponent } from './view-shifts/view-shifts.component';
 import { AddStaffComponent } from './add-staff/add-staff.component';
 import { HeaderManagerComponent } from './header-manager/header-manager.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -30,6 +31,7 @@ export const routes: Routes = [
     { path: 'viewstaff', component: ViewStaffComponent, canActivate: [AuthGuard] },
     { path: 'viewshifts', component: ViewShiftsComponent, canActivate: [AuthGuard]},
     { path: 'addstaff', component: AddStaffComponent, canActivate: [AuthGuard]},
-    { path: 'inventory/:id/edit', component: EditProductComponent, canActivate: [AuthGuard]}
+    { path: 'inventory/:id/edit', component: EditProductComponent, canActivate: [AuthGuard]},
+    { path: 'customer/:id/edit', component: EditCustomerComponent, canActivate: [AuthGuard]}
     
 ];

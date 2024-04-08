@@ -8,7 +8,7 @@ import { Customer } from '../view-customers/customer.model';
 })
 export class CustomerService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api/customer';
+  private apiUrl = 'http://127.0.0.1:8000/api/customers';
 
   constructor(private http: HttpClient) { }
   
@@ -22,6 +22,13 @@ export class CustomerService {
   getCustomerByPhoneNumber(phoneNumber: string): Observable<Customer> {
     return this.http.get<Customer>(`${this.apiUrl}/${phoneNumber}`);
   }
-  
+  getCustomerById(CustomerID: number): Observable<Customer> {
+    const url = `${this.apiUrl}/${CustomerID}`;
+    return this.http.get<Customer>(url);
+  }
+
+  updateCustomer(customer: Customer): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${customer.CustomerID}`, customer);
+  }
   
 }
