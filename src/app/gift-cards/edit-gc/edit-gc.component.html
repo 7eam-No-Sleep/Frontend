@@ -1,1 +1,11 @@
-<p>edit-gc works!</p>
+<h1>Edit Gift Card</h1>
+<form (ngSubmit)="updateGiftCard()">
+    <h2>Card Number:</h2>
+    <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="CardNumber">
+    <h2>Balance: </h2>
+    <input type="text" id="balance" name="balance" [(ngModel)]="Balance">
+    <h2>Status: </h2>
+    <input type="text" id="status" name="status" [(ngModel)]="Status">
+    <br>
+    <button type="submit">Edit Gift Card</button>
+</form>
