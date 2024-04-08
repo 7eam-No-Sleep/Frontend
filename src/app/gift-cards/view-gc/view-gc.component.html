@@ -1,0 +1,23 @@
+<h1>View Gift Card Balance</h1>
+<div class="search-bar">
+    <h2>Search by Card Number</h2>
+    <input type="text">
+    <br><br>
+</div>
+<table class="inventory-table">
+    <thead>
+        <tr>
+            <th>Card Number</th>
+            <th>Balance</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let giftcard of cards">
+            <td> {{ giftcard.CardNumber }}</td>
+            <td> {{ giftcard.Balance }}</td>
+            <td> {{ giftcard.Status }}</td>
+        </tr>
+    </tbody>
+</table>
+

@@ -15,12 +15,13 @@ import { AddStaffComponent } from './add-staff/add-staff.component';
 import { HeaderManagerComponent } from './header-manager/header-manager.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { GiftCardsComponent } from './gift-cards/gift-cards.component';
 
 export const routes: Routes = [
-    {path: '', component: LoginComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'header', component: HeaderComponent, canActivate: [AuthGuard]},
-    {path: 'managerheader', component: HeaderManagerComponent, canActivate: [AuthGuard]},
+    { path: '', component: SalesComponent},
+    { path: 'login', component: LoginComponent},
+    { path: 'header', component: HeaderComponent, canActivate: [AuthGuard]},
+    { path: 'managerheader', component: HeaderManagerComponent, canActivate: [AuthGuard]},
     { path: 'sales', component: SalesComponent, canActivate: [AuthGuard] },
     { path: 'viewinventory', component: ViewInventoryComponent, canActivate: [AuthGuard] },
     { path: 'viewcustomers', component: ViewCustomersComponent, canActivate: [AuthGuard] },
@@ -32,6 +33,7 @@ export const routes: Routes = [
     { path: 'viewshifts', component: ViewShiftsComponent, canActivate: [AuthGuard]},
     { path: 'addstaff', component: AddStaffComponent, canActivate: [AuthGuard]},
     { path: 'inventory/:id/edit', component: EditProductComponent, canActivate: [AuthGuard]},
-    { path: 'customer/:id/edit', component: EditCustomerComponent, canActivate: [AuthGuard]}
+    { path: 'customer/:id/edit', component: EditCustomerComponent, canActivate: [AuthGuard]},
+    { path: 'giftcards', component: GiftCardsComponent, canActivate: [AuthGuard]}
     
 ];
