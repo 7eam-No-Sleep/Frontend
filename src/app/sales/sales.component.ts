@@ -12,6 +12,7 @@ import { Sale } from './Sale.model';
 import { Transaction } from '../transaction-history/transaction.model';
 import { TransactionService } from '../shared/transaction.service';
 import { ItemsService } from '../shared/items.service';
+import { ShiftService } from '../shared/shift.service';
 
 @Component({
   selector: 'app-sales',
@@ -44,7 +45,8 @@ export class SalesComponent {
     public saleService: SaleService,
     private cardsService: CardsService,
     private transactionService: TransactionService,
-    private itemsService: ItemsService
+    private itemsService: ItemsService,
+    private shiftService: ShiftService
   ) {}
 
   fetchProduct(): void {
@@ -134,6 +136,18 @@ export class SalesComponent {
         if(this.PaymentMethod != 'cash'){
           newTransaction.ChangeGiven = 0;
         }
+        if(this.PaymentMethod ==='cash'){
+          this.shiftService.addCash(totalPrice);
+        }
+        if(this.PaymentMethod ==='card'){
+          this.shiftService.addCard(totalPrice);
+        }
+        if(this.PaymentMethod ==='check'){
+          this.shiftService.addCheck(totalPrice);
+        }
+        this.shiftService.addSales(totalPrice);
+        this.shiftService.addTransaction();
+
 
         this.transactionService.addTransaction(newTransaction).subscribe({
           next: (transactionResponse) => {

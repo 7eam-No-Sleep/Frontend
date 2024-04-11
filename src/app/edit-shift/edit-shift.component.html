@@ -1,0 +1,23 @@
+<div class="edit-product-container">
+    <div class="column">
+        <h2>Employee ID:</h2>
+        <input type="number" [(ngModel)]="shift.employee_id">
+        <h2>Shift Time:</h2>
+        <input type="number" [(ngModel)]="shift.shift_time">
+        <h2>Shift Date:</h2>
+        <input type="number" [(ngModel)]="shift.shift_date">
+        <h2>Total Transactions:</h2>
+        <input type="number" [(ngModel)]="shift.total_transactions">
+    </div>
+    <div class="column">
+        <h2>Total Cash:</h2>
+        <input type="number" [(ngModel)]="shift.total_cash">
+        <h2>Total Checks:</h2>
+        <input type="number" [(ngModel)]="shift.total_checks">
+        <h2>Total Card Sales:</h2>
+        <input type="number" [(ngModel)]="shift.total_card_sales">
+        <h2>Total Sales:</h2>
+        <input type="number" [(ngModel)]="shift.total_sales">
+        <button (click)="saveShift()">Edit Shift</button>
+    </div>
+</div>

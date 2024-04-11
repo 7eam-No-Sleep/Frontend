@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ShiftService } from '../shared/shift.service';
 import { Shift } from './shift.model';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-view-shifts',
@@ -12,8 +14,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ViewShiftsComponent {
   shifts: Shift[] = [];
+
   
-  constructor(private shiftService: ShiftService){}
+  constructor(private shiftService: ShiftService, private router: Router){}
 
   ngOnInit(): void{
     this.getShifts();
@@ -23,5 +26,11 @@ export class ViewShiftsComponent {
     this.shiftService.getShifts()
     .subscribe(shifts => this.shifts = shifts);
   }
+
+  onEdit(shiftId: number){
+    this.router.navigate(['/shift', shiftId, 'edit'])
+  }
+
+
 
 }

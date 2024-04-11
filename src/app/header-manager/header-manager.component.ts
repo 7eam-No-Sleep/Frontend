@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router, RouterLinkActive, RouterLink } from '@angular/router';
+import { ShiftService } from '../shared/shift.service';
 
 @Component({
   selector: 'app-header-manager',
@@ -10,11 +11,11 @@ import { Router, RouterLinkActive, RouterLink } from '@angular/router';
   styleUrl: './header-manager.component.css'
 })
 export class HeaderManagerComponent {
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router, private shiftService: ShiftService){}
 
   logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);
+    this.shiftService.endShift();
+
   }
 }
 

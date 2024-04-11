@@ -19,4 +19,7 @@ export class EmployeeService {
   addEmployee (employee: Employee): Observable<Employee>{
     return this.http.post<Employee>(this.apiUrl, employee)
   }
+  updateEmployeeHours(employeeId: number, hours: number): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${employeeId}/hours`, {hours: hours});
+  }
 }

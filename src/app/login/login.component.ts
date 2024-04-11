@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ShiftService } from '../shared/shift.service';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,14 @@ export class LoginComponent {
   employeeId: number=0;
   password: string = '';
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router, private shiftService: ShiftService){}
 
   onSubmit(): void {
     this.authService.login(this.employeeId, this.password)
       .subscribe({
         next: () => {
           const userRole = this.authService.getUserRole();
+          this.shiftService.startShift();
           if (userRole === 'sales') {
             this.router.navigate(['/sales']);
           } else if (userRole === 'manager') {
