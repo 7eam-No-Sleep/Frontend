@@ -17,9 +17,8 @@ export class TransactionService {
   getTransactions(): Observable<Transaction[]>{
     return this.http.get<Transaction[]>(this.apiUrl);
   }
-  createTransaction(newTransaction: Transaction): Observable<Transaction> {
+  addTransaction(newTransaction: Transaction): Observable<Transaction> {
     return this.http.post<Transaction>(this.apiUrl, newTransaction);
   }
-
 }
 

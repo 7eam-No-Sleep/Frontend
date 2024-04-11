@@ -1,7 +1,93 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal-width columns */
-    gap: 2px; /* Adjust as needed */
-    justify-content: center;
+/* sales-page.component.css */
+
+.sales-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.column {
+    flex: 1;
+    padding: 0 10px;
     text-align: center;
+}
+
+.column h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-family: 'Trebuchet MS';
+    color: #1c2467;
+}
+
+.column p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Trebuchet MS';
+    color: #1c2467;
+}
+
+.column ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column li {
+    margin-bottom: 5px;
+    font-family: 'Trebuchet MS';
+    font-size: 18px;
+    color: #1c2467;
+}
+
+/* Styling for inputs */
+.column input[type="number"],
+.column input[type="text"],
+.column select {
+    width: 80%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #9a840be0; /* Use the provided color for border */
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    color: #1c2467;
+}
+
+/* Styling for buttons */
+.column button {
+    padding: 8px 16px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 1px solid #9a840be0; /* Use the provided color for border */
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1c2467; /* Use the provided color for background */
+    color: #9a840be0; /* Use the provided color for text */
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.column button:hover {
+    background-color: #18258e; /* Darken the background color on hover */
+}
+.error-message {
+    color: red;
+    font-weight: bold;
   }
+.gift-card{
+background-color: #9a840be0; /* Gold/Yellow color */
+  color: #1c2467; /* Dark blue text color */
+  padding: 8px; /* Add padding to the table header cells */
+  text-align: left; /* Align text to the left within header cells */
+  border-bottom: 2px solid #1c2467; /* Add bottom border to header cells */
+  height: 70px;
+  font-size: 15px;
+  font-family: 'Trebuchet MS';
+  text-align: center;
+}
+.gift-card input[type="number"]{
+    width: 20%;
+    
+}

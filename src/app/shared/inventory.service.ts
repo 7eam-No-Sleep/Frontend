@@ -28,5 +28,30 @@ export class InventoryService {
   updateProduct(product: Inventory): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/products/${product.ProductID}`, product);
   }
+
+  decreaseProductsByOne(inventoryItems: Inventory[]): void{
+    inventoryItems.forEach(item=>{
+      const updatedItem: Inventory ={
+        ProductID: item.ProductID,
+        ProductName: item.ProductName,
+        Category: item.Category,
+        Description: item.Description,
+        CostPrice: item.CostPrice,
+        SellingPrice: item.SellingPrice,
+        QuantityInStock: (item.QuantityInStock-1),
+        Color: item.Color,
+        Size: item.Size,
+        Material: item.Material
+      };
+      this.http.put<any>(`${this.apiUrl}/products/${item.ProductID}`, updatedItem).subscribe(
+        ()=>{
+          console.log('Product succesfully updated: ', updatedItem);
+        },
+        (error)=>{
+          console.error('error updating product:', error);
+        }
+      )
+    })
+  }
 }
 

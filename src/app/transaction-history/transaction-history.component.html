@@ -13,6 +13,11 @@
             <th>Transaction Date</th>
             <th>Payment Method</th>
             <th>Total Amount</th>
+            <th>Cash Received</th>
+            <th>Change Given</th>
+            <th>Check Number</th>
+            <th>CC #</th>
+            <th>CC Expiration Date</th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +28,11 @@
             <td> {{ transaction.TransactionDate }}</td>
             <td> {{ transaction.PaymentMethod }}</td>
             <td> {{ transaction.TotalAmount }}</td>
+            <td> {{ transaction.CashReceived }}</td>
+            <td> {{ transaction.ChangeGiven }}</td>
+            <td> {{ transaction.CheckNumber }}</td>
+            <td> {{ transaction.CreditNumber }}</td>
+            <td> {{ transaction.ExpiryDate }}</td>
         </tr>
     </tbody>
 </table>

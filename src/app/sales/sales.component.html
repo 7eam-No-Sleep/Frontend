@@ -1,5 +1,58 @@
-<div class="grid-container">
-    <app-left-column></app-left-column> <!-- Include your left column component -->
-    <app-mid-column></app-mid-column>
-    <app-right-column></app-right-column>
-  </div>
+<div class="sales-container">
+    <div class="column">
+        <h2>Product ID</h2>
+        <input type="number" [(ngModel)]="ProductID">
+        <button (click)="fetchProduct()">Fetch</button>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <h2>Discount Reason</h2>
+        <select>
+            <option value="">Select a reason</option>
+            <option value="first_responders">First Responders</option>
+            <option value="customer_loyalty">Customer Loyalty</option>
+            <option value="family">Family</option>
+            <option value="owners">Owners</option>
+            <option value="employee">Employee</option>
+            <option value="damaged_goods">Damaged Goods</option>
+            <option value="redline">Redline</option>
+            <option value="veterans">Veterans</option>
+          </select>
+        <h2>Discount Amount</h2>
+        <input type="number" [(ngModel)]="discountAmount"><br>
+        <button (click)="applyDiscount(discountAmount)">+</button><button>-</button>
+        <h2>Fetch Gift Card</h2>
+        <input type="number" [(ngModel)]="cardNumber">
+        <br><button (click)="fetchGiftCard(cardNumber)">Fetch</button>
+        <br><br>
+        <div *ngIf="giftCard.Status" class="gift-card">Balance: {{ giftCard.Balance }}<br> <input type="number" [(ngModel)]="cardBalanceUsed"></div>
+    </div>
+    <div class="column">
+        <h2>Proposed Sale Summary</h2>
+        <p>Date: {{ currentDate | date: 'MM/dd/yyyy' }}</p>
+        <p>Items Total: ${{ saleService.ItemTotal.toFixed(2) }} </p>
+        <p *ngIf="cardBalanceUsed>0 && cardBalanceUsed<=giftCard.Balance">Gift Card: {{ cardBalanceUsed.toFixed(2) }}</p>
+        <p>Discount Amount: ${{ saleService.discountAmount.toFixed(2) }}</p>
+        <p>Sales Tax (10.2%): ${{  ((saleService.ItemTotal-saleService.discountAmount)*0.102).toFixed(2) }}</p>
+        <p>Final Total: ${{ calculateFinalTotal() | number: '1.2-2' }}</p>
+        <br>
+        <h2>Current Cart: </h2>
+        <ul>
+            <li *ngFor="let product of saleService.Items">
+                ID: {{ product.ProductID }}, Name: {{ product.ProductName }}, Price: {{ product.SellingPrice | number }}
+                <button (click)="removeFromSale(product)">Remove</button>
+            </li>
+        </ul>
+    </div>
+    <div class="column">
+        <h2>Sales Person: {{ getSaleId() }}</h2>
+        <h2>Customer Phone Number:</h2>
+        <input type="text" [(ngModel)]="CustomerPhoneNumber"><br>
+        <button (click)="fetchCustomer(CustomerPhoneNumber)">Fetch</button>
+        <p *ngIf="CustomerID!=null">Customer: {{ CustomerName }}</p><br><br><br>
+        <button (click)="PaymentMethod='card'">Card</button><button (click)="PaymentMethod='cash'">Cash</button><button (click)="PaymentMethod='check'">Check</button><br><br>
+        <p *ngIf="PaymentMethod === 'cash'">Cash Recieved: </p>
+        <input *ngIf="PaymentMethod === 'cash'" type="input" [(ngModel)]="cashReceieved">
+        <p *ngIf="PaymentMethod === 'cash'">Change to Give: {{ (getChange(cashReceieved) ).toFixed(2) }}</p>
+        <p *ngIf="PaymentMethod === 'check'">Check Number: </p> <input *ngIf="PaymentMethod === 'check'" type="input" [(ngModel)]="checkNo">
+        <button (click)="finalize()">Finalize</button><button (click)="finalize()">Clear</button>
+    </div>
+</div>

@@ -21,4 +21,9 @@ export class CardsService {
   addCard(card: GiftCard): Observable<GiftCard>{
     return this.http.post<GiftCard>(this.apiUrl, card);
   }
+  getCardById(CardNumber: number): Observable<any>{
+    const url = `${this.apiUrl}/${CardNumber}`;
+    return this.http.get<GiftCard>(url);
+  }
+  
 }
