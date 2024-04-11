@@ -10,6 +10,7 @@ import { Inventory } from '../view-inventory/inventory.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ItemsService {
 
   constructor(private http: HttpClient,
@@ -36,6 +37,9 @@ export class ItemsService {
         }
       );
     });
+  }
+  getItemsBySaleId(saleId: number): Observable<Items[]> {
+    return this.http.get<Items[]>(`${this.apiUrl}/${saleId}`);
   }
 
 

@@ -88,7 +88,7 @@ export class SalesComponent {
     const itemTotal = this.saleService.ItemTotal;
     const discountAmount = this.saleService.discountAmount;
     const cardBalanceUsed =  this.cardBalanceUsed;
-    const salesTax = (itemTotal - discountAmount) * 0.125;
+    const salesTax = (itemTotal - discountAmount) * 0.102;
     return itemTotal - discountAmount - cardBalanceUsed + salesTax;
   }
 
@@ -158,7 +158,7 @@ export class SalesComponent {
   calculateTotalPrice(): number {
     const itemTotal = this.saleService.ItemTotal;
     const discountAmount = this.saleService.discountAmount;
-    const salesTax = (itemTotal - discountAmount) * 0.125;
+    const salesTax = (itemTotal - discountAmount) * 0.102;
     return parseFloat((itemTotal - discountAmount + salesTax).toFixed(2));
   }
 

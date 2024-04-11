@@ -16,6 +16,7 @@ import { HeaderManagerComponent } from './header-manager/header-manager.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { GiftCardsComponent } from './gift-cards/gift-cards.component';
+import { ProcessReturnsComponent } from './process-returns/process-returns.component';
 
 export const routes: Routes = [
     { path: '', component: SalesComponent},
@@ -34,6 +35,6 @@ export const routes: Routes = [
     { path: 'addstaff', component: AddStaffComponent, canActivate: [AuthGuard]},
     { path: 'inventory/:id/edit', component: EditProductComponent, canActivate: [AuthGuard]},
     { path: 'customer/:id/edit', component: EditCustomerComponent, canActivate: [AuthGuard]},
-    { path: 'giftcards', component: GiftCardsComponent, canActivate: [AuthGuard]}
-    
-];
+    { path: 'giftcards', component: GiftCardsComponent, canActivate: [AuthGuard]},
+    { path: 'processreturns', component: ProcessReturnsComponent, canActivate: [AuthGuard]}
+    ];
