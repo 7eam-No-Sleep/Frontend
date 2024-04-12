@@ -1,7 +1,7 @@
 <h1>View Gift Card Balance</h1>
 <div class="search-bar">
     <h2>Search by Card Number</h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="searchQuery" (input)="searchInventory()">
     <br><br>
 </div>
 <table class="inventory-table">
@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let giftcard of cards">
+        <tr *ngFor="let giftcard of filteredCards">
             <td> {{ giftcard.CardNumber }}</td>
             <td> {{ giftcard.Balance }}</td>
             <td> {{ giftcard.Status }}</td>

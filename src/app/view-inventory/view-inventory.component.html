@@ -21,7 +21,6 @@
         <th>Sale Price</th>
         <th>Quantity In Stock</th>
         <th>Edit</th>
-        <th>Print Barcode</th>
       </tr>
     </thead>
     <tbody>
@@ -38,7 +37,6 @@
         <td>{{ inventory.SellingPrice }}</td>
         <td>{{ inventory.QuantityInStock }}</td>
         <td><button (click)="onEdit(inventory.ProductID)">Edit</button></td>
-        <td><button>Print Barcode</button></td>
       </tr>
     </tbody>
   </table>

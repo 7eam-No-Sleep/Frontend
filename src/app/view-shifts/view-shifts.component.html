@@ -1,6 +1,6 @@
 <div class="search-bar">
     <h2>Search Shift by Date or Employee ID</h2>
-    <input type="text">
+    <input type="text" [(ngModel)]="searchQuery" (input)="searchShifts()">
     <br><br>
 </div>
 
@@ -21,7 +21,7 @@
       </thead>
     <tbody>
       <!-- Populate table rows dynamically using Angular -->
-      <tr *ngFor="let shift of shifts">
+      <tr *ngFor="let shift of filteredShifts">
         <td>{{ shift.shift_id }}</td>
         <td>{{ shift.employee_id }}</td>
         <td>{{ shift.shift_time }}</td>
