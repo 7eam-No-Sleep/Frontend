@@ -55,3 +55,7 @@
   button[type="submit"]:hover {
     background-color: #0f1630; /* Darken the background color on hover */
   }
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
