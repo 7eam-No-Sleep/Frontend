@@ -22,7 +22,7 @@ export class ShiftService {
     private employeeService: EmployeeService
   ) { }
 
-  currentShift: Shift ={
+  currentShift: Shift = {
     shift_id: 0,
     employee_id: 0,
     shift_time: 0,
@@ -34,7 +34,7 @@ export class ShiftService {
     total_sales: 0,
   };
   starttime: string = '';
-  endtime: string  = '' ;
+  endtime: string = '';
   currentDate: Date = new Date();
   formattedDate = this.currentDate.toISOString().split('T')[0];
 
@@ -42,14 +42,21 @@ export class ShiftService {
   getShifts(): Observable<Shift[]>{
     return this.http.get<Shift[]>(this.apiUrl);
   }
-  startShift(): void{
+
+  startShift(): void {
     const now = new Date();
     this.starttime = now.toLocaleTimeString();
+    localStorage.setItem('startTime', this.starttime); // Save the start time
+    localStorage.setItem('startDate', this.formattedDate); // Save the start date
   }
+
+
   endShift(): void {
     const now = new Date();
     this.endtime = now.toLocaleTimeString();
     this.finalizeShift(); // Directly call the finalizeShift method.
+    localStorage.removeItem('startTime'); // Clear the start time
+    localStorage.removeItem('startDate'); // Clear the start date
   }
 
   addTransaction(): void{
@@ -62,36 +69,28 @@ export class ShiftService {
     this.currentShift.total_card_sales += card;
   }
   addCheck (check: number): void{
-    this.currentShift.total_card_sales +=check;
+    this.currentShift.total_checks +=check;
   }
   addSales (sales: number): void{
     this.currentShift.total_sales +=sales;
   }
   finalizeShift(): void {
-    console.log("Start Time:", this.starttime);
-    console.log("End Time:", this.endtime);
-  
-    const startDate = new Date(`${this.currentDate.toDateString()} ${this.starttime}`);
-    const endDate = new Date(`${this.currentDate.toDateString()} ${this.endtime}`);
+    const startDateStr = localStorage.getItem('startDate') || this.formattedDate;
+    const startTime = localStorage.getItem('startTime') || this.starttime;
+    
+    const startDate = new Date(`${startDateStr} ${startTime}`);
+    const endDate = new Date(`${this.formattedDate} ${this.endtime}`);
     const diff = (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60);
     this.currentShift.shift_time = parseFloat(diff.toFixed(2)); 
-  
-    console.log("Calculated Shift Time (Hours):", this.currentShift.shift_time);
+
     this.currentShift.employee_id = this.getSaleId();
-    console.log("Assigned Employee ID:", this.currentShift.employee_id);
-    this.currentShift.shift_date = this.formattedDate;
-    console.log("Shift Details Being Sent:", this.currentShift);
-  
+    this.currentShift.shift_date = startDateStr;
+
     this.http.post<Shift>(this.apiUrl, this.currentShift).subscribe({
       next: (response) => {
-        console.log("Shift posted successfully:", response);
-        // Assuming you get the total shift time correctly from the response if needed
         const hoursToAdd = this.currentShift.shift_time;
-        
-        // Update employee hours
         this.employeeService.updateEmployeeHours(this.currentShift.employee_id, hoursToAdd).subscribe({
           next: (updateResponse) => {
-            console.log("Employee hours updated successfully", updateResponse);
             this.authService.logout();
             this.router.navigate(['/login']);
           },
@@ -105,6 +104,7 @@ export class ShiftService {
       }
     });
   }
+
 
 
   getSaleId(): number {
