@@ -111,7 +111,7 @@ export class SalesComponent {
       SaleID: 0,
       CustomerID: this.CustomerID,
       TotalPrice: totalPrice,
-      Discount: this.discountAmount,
+      Discount: this.saleService.discountAmount,
       employee_id: this.employee_id,
       ItemsSold: this.saleService.Items.length,
       SaleDate: this.formattedDate

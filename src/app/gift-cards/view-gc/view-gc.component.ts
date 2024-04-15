@@ -25,14 +25,16 @@ export class ViewGcComponent {
     this.cardsService.getCards()
     .subscribe(cards => this.cards = cards);
   }
-  searchInventory(){
-    if(!this.searchQuery || this.searchQuery==''){
+  searchInventory() {
+    // Check if searchQuery is not present or empty
+    if (!this.searchQuery || this.searchQuery.trim() === '') {
+      // Clone the cards array to filteredCards
       this.filteredCards = [...this.cards];
-    }else{
-      const query = parseInt(this.searchQuery);
-      this.filteredCards = this.cards.filter((card)=>
-        card.CardNumber === query
-      );
+    } else {
+      // Parse the search query as an integer
+      const query = parseInt(this.searchQuery, 10);
+      // Filter cards based on CardNumber matching the parsed query
+      this.filteredCards = this.cards.filter((card) => card.CardNumber === query);
     }
   }
 
