@@ -13,6 +13,7 @@ import { Transaction } from '../transaction-history/transaction.model';
 import { TransactionService } from '../shared/transaction.service';
 import { ItemsService } from '../shared/items.service';
 import { ShiftService } from '../shared/shift.service';
+import { PrintReceiptService } from '../shared/print-receipt.service';
 
 @Component({
   selector: 'app-sales',
@@ -46,7 +47,8 @@ export class SalesComponent {
     private cardsService: CardsService,
     private transactionService: TransactionService,
     private itemsService: ItemsService,
-    private shiftService: ShiftService
+    private shiftService: ShiftService,
+    private receiptPrintService: PrintReceiptService
   ) {}
 
   fetchProduct(): void {
@@ -167,6 +169,18 @@ export class SalesComponent {
         console.error('Error finalizing sale:', saleError);
       }
     });
+    const receiptData = {
+      date: new Date(),
+      discount: this.discountAmount,
+      itemsTotal: this.saleService.ItemTotal || 0, // Ensure it's not undefined
+      salesTax: (((this.saleService.ItemTotal - this.saleService.discountAmount) * 0.102) || 0).toFixed(2), // Ensure it's not undefined
+      giftCard: this.cardBalanceUsed,
+      finalTotal: this.calculateFinalTotal() || 0, // Ensure it's not undefined
+      salePerson: this.getSaleId() || 'Unknown', // Provide a default value if undefined
+      customerNumber: this.CustomerPhoneNumber || 0
+    };
+    
+    this.receiptPrintService.printReceipt(receiptData)
   }
 
   calculateTotalPrice(): number {
