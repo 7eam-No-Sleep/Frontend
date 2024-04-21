@@ -1,3 +1,11 @@
+h2{
+    font-family: 'Trebuchet MS';
+    color: #1c2467;
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+
 .textbox-container {
     position: fixed;
     bottom: 20px;

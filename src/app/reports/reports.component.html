@@ -1,5 +1,15 @@
 
 <!-- Add the text box component -->
-<p>reports works!</p>
-<div></div>
-<app-textbox (submit)="onSubmit"></app-textbox>
+<div>    
+    <app-textbox (submit)="onSubmit()"></app-textbox>
+    <!-- Display CSV data if available -->
+  <div ngIf="requestedData">
+    <h2>Exported Data</h2>
+    <pre>{{ requestedData }}</pre>
+    <a #csvDownloadLink style="display: none;">Download CSV</a>
+    <button (click)="downloadCSV()">Download CSV</button>
+  </div>
+
+  <p>reports works!</p>
+
+</div>
