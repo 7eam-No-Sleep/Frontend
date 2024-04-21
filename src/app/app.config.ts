@@ -9,3 +9,4 @@ import { DatePipe } from '@angular/common';
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideHttpClient(), FormsModule, DatePipe]
 };
+

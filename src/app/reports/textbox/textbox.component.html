@@ -1,0 +1,52 @@
+<!-- textbox.component.html -->
+<!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Box Form</title>
+    <script src="ai.js" defer></script>
+    <link rel="stylesheet" href="textbox.component.css">
+</head> -->
+<!-- <body>
+    <form id="userQuery">
+        <label for="textbox">Enter your text:</label>
+        <input type="text" id="textbox" name="textbox">
+        <span class="tooltip-icon" title="Ask me what you would like to know with your inventory or sales! Ex.: 'What products are currently out of stock?' or 'How much did we make in total sales today?'">?</span>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        // Get the textbox element
+        const textbox = document.getElementById('textbox');
+
+        // Automatically adjust the height of the textbox based on its contents
+        textbox.addEventListener('input', function() {
+            textbox.style.height = 'auto';
+            textbox.style.height = textbox.scrollHeight + 'px';
+        });
+    </script>
+</body> -->
+<!-- textbox.component.html -->
+<form id="userQuery">
+
+    <h2>Enter a question for the AI:</h2>
+    <select id="reportCategory" name="reportCategory">
+        <option value="placeHolder">Choose a category</option>
+        <option value="inventory">Inventory</option>
+        <option value="sales">Sales</option>
+        <option value="transactions">Transactions</option>
+    </select>
+    <br>
+    <br>
+    <textarea id="textbox" name="textbox" rows="1"></textarea>
+    <button type="submit">Submit</button>
+</form> 
+
+
+<!-- <form [formGroup]="fingForm" id="userQuery">
+    <label for="textbox">Enter your text:</label>
+    <textarea formControlName="textbox" id="textbox" name="textbox" rows="1"></textarea>
+    <span class="tooltip-icon" title="Ask me what you would like to know with your inventory or sales! Ex.: 'What products are currently out of stock?' or 'How much did we make in total sales today?'">?</span>
+    <button type="submit">Submit</button>
+</form> -->
+
+  

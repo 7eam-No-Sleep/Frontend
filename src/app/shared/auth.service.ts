@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-    login(employeeId: number, password: string) {
+  login(employeeId: number, password: string) {
     return this.http.get<any>(
       `${this.apiUrl}/employee/${employeeId}/credentials?password=${password}`
     ).pipe(

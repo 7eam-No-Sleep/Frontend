@@ -18,6 +18,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { GiftCardsComponent } from './gift-cards/gift-cards.component';
 import { ProcessReturnsComponent } from './process-returns/process-returns.component';
 import { EditShiftComponent } from './edit-shift/edit-shift.component';
+import { TextboxComponent } from './reports/textbox/textbox.component';
 
 export const routes: Routes = [
     { path: '', component: SalesComponent},
@@ -38,6 +39,6 @@ export const routes: Routes = [
     { path: 'customer/:id/edit', component: EditCustomerComponent, canActivate: [AuthGuard]},
     { path: 'giftcards', component: GiftCardsComponent, canActivate: [AuthGuard]},
     { path: 'processreturns', component: ProcessReturnsComponent, canActivate: [AuthGuard]},
-    { path: 'shift/:id/edit', component: EditShiftComponent, canActivate: [AuthGuard]} 
-
+    { path: 'shift/:id/edit', component: EditShiftComponent, canActivate: [AuthGuard]}, 
+    { path: 'app-textbox', component: TextboxComponent, canActivate: [AuthGuard]}
 ];

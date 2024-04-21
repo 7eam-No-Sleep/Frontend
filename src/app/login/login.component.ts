@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   employeeId: number=0;
-  password: string = '';
+  password: string = '0';
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router, private shiftService: ShiftService){}

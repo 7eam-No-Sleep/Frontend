@@ -1,0 +1,31 @@
+.textbox-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column; /* Adjust to column layout */
+    align-items: center; /* Center align items horizontally */
+}
+
+.button-container {
+    margin-left: 10px; /* Add more space between textbox and button */
+    flex-direction: column; /* Adjust to column layout */
+    align-items: center; /* Center align items horizontally */
+
+}
+  
+  button {
+    padding: 8px 16px;
+    margin-top: 4px;
+    margin-right: 5px;
+    border: 1px solid #9a840be0;
+    color: #9a840be0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1c2467;
+    font-size: 20px;
+    font-family: 'Trebuchet MS';
+  }
+.tooltip-icon {
+    cursor: help;
+}

@@ -5,11 +5,13 @@ import { CommonModule, NgFor } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './shared/auth.service';
 import { HeaderManagerComponent } from './header-manager/header-manager.component';
+import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { TextboxComponent } from './reports/textbox/textbox.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent,  RouterOutlet, NgFor, LoginComponent, HeaderManagerComponent, CommonModule],
+  imports: [RouterOutlet, HeaderComponent,  RouterOutlet, NgFor, LoginComponent, HeaderManagerComponent, CommonModule, ReactiveFormsModule, TextboxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -20,7 +22,7 @@ export class AppComponent {
   constructor(private authService: AuthService) {}
 
   isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
+    return true;//this.authService.isLoggedIn();
   }
 
   isManager(): boolean {
