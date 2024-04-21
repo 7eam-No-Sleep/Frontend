@@ -76,6 +76,9 @@ export class SalesComponent {
   applyDiscount(amount: number): void {
     this.saleService.applyDiscount(amount);
   }
+  removeDiscount(amount: number): void{
+    this.saleService.removeDiscount(amount);
+  }
 
   fetchGiftCard(cardNumber: number): void {
     this.cardsService.getCardById(cardNumber).subscribe({

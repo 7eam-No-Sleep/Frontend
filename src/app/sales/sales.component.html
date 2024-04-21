@@ -18,7 +18,7 @@
           </select>
         <h2>Discount Amount</h2>
         <input type="number" [(ngModel)]="discountAmount"><br>
-        <button (click)="applyDiscount(discountAmount)">+</button><button>-</button>
+        <button (click)="applyDiscount(discountAmount)">+</button><button (click)="applyDiscount(0)">-</button>
         <h2>Fetch Gift Card</h2>
         <input type="number" [(ngModel)]="cardNumber">
         <br><button (click)="fetchGiftCard(cardNumber)">Fetch</button>
@@ -53,6 +53,6 @@
         <input *ngIf="PaymentMethod === 'cash'" type="input" [(ngModel)]="cashReceieved">
         <p *ngIf="PaymentMethod === 'cash'">Change to Give: {{ (getChange(cashReceieved) ).toFixed(2) }}</p>
         <p *ngIf="PaymentMethod === 'check'">Check Number: </p> <input *ngIf="PaymentMethod === 'check'" type="input" [(ngModel)]="checkNo">
-        <button (click)="finalize()">Finalize</button><button (click)="finalize()">Clear</button>
+        <button (click)="finalize()">Finalize</button><button (click)="clearFields()">Clear</button>
     </div>
 </div>

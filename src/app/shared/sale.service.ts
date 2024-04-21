@@ -48,6 +48,9 @@ export class SaleService {
   applyDiscount(discountAmount: number): void{
     this.discountAmount = (discountAmount/100) * this.ItemTotal;
   }
+  removeDiscount(discountAmount: number): void{
+    this.discountAmount = (this.discountAmount-discountAmount)/100 * this.ItemTotal;
+  }
   finishSale(sale: Sale):  Observable<Sale>{
     return this.http.post<Sale>(this.apiUrl, sale);
   }
