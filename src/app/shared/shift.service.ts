@@ -92,6 +92,7 @@ export class ShiftService {
         this.employeeService.updateEmployeeHours(this.currentShift.employee_id, hoursToAdd).subscribe({
           next: (updateResponse) => {
             this.authService.logout();
+            this.clear();
             this.router.navigate(['/login']);
           },
           error: (err) => {
